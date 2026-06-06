@@ -1,0 +1,28 @@
+---
+services:
+  obsidian:
+    image: lscr.io/linuxserver/obsidian:latest
+    container_name: obsidian
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Etc/UTC
+      - VIRTUAL_HOST=obsidian.affiliatemarketconnect.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=obsidian.affiliatemarketconnect.com
+      - LETSENCRYPT_EMAIL=tevis.johnston@affiliatemarketconnect.com
+    volumes:
+      - /home/tevis/obsidian:/config
+    shm_size: "1gb"
+    restart: unless-stopped
+    networks:
+      - webproxy
+
+volumes:
+  obsidian: {}
+
+networks:
+  webproxy:
+    external: true
+    name: affiliatemarketconnectcom_webproxy
+

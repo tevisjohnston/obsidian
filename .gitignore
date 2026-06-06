@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────
+# linuxserver/obsidian container runtime — NOT vault content.
+# This repo mounts the container home (/config), so everything
+# below is app/desktop state that churns and must not be tracked.
+# ─────────────────────────────────────────────────────────────
+.cache/
+.config/
+.local/
+.pki/
+.XDG/
+Desktop/
+.bashrc
+
+# TLS material for the container (includes a private key)
+ssl/
+
+# ─────────────────────────────────────────────────────────────
+# Per-vault Obsidian noise (applies inside any vault folder you
+# create here, e.g. claude-obsidian/.obsidian/...). Keeps your
+# notes and core settings, drops machine-specific churn.
+# ─────────────────────────────────────────────────────────────
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.trash/
+
+# OS / misc
+.DS_Store
+*.tmp
